@@ -173,3 +173,49 @@ df["furnished"] = imputer.fit_transform(df["furnished"].values.reshape(-1, 1))[:
 df.info()
 
 processed_csv = df.to_csv("ready_to_model_df.csv")
+
+# the function converts the portcode to province
+def define_province(x):
+    # x is zipcode of the property
+    if ((x >= 1000) & (x < 1299)) :
+        return 'Brussels Capital Region'
+    elif ((x >= 1300) & (x < 1499)) :
+        return 'Walloon Brabant'
+    elif (((x >= 1500) & (x < 1999)) | ((x >= 3000) & (x < 3499))):
+        return 'Flemish Brabant'
+    elif ((x >= 2000) & (x < 2999)) :
+        return 'Antwerp'
+    elif ((x >= 3500) & (x < 3999)) :
+        return 'Limburg'
+    elif ((x >= 4000) & (x < 4999)) :
+        return 'Liège'
+    elif ((x >= 5000) & (x < 5999)) :
+        return 'Namur'
+    elif (((x >= 6000) & (x < 6599)) | ((x >= 7000) & (x < 7999))):
+        return 'Hainaut'
+    elif ((x >= 6600) & (x < 6999)) :
+        return 'Luxembourg'
+    elif ((x >= 8000) & (x < 8999)) :
+        return 'West Flanders'
+    elif ((x >= 9000) & (x < 9999)) :
+        return 'East Flanders'
+    elif (x > 10000) : 
+        return 'more'
+
+
+def preprocess(new_house = dict):
+    # this fuction should take the input (new house info) 
+    # and  return preprocessed input which is ready to make prediction in the model
+    
+    # deal with the format (convert json to df)
+    # input = df format of new_house
+    
+    # deal with the zipcode (convert zipcode to province)
+    prop_province = define_province(input["zipcode"])
+    input["province"] = prop_province
+
+    
+    # deal with the columns (one-hot-encoder)
+    input  = preprocessing(input)
+
+    return input
