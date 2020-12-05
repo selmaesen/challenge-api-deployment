@@ -208,14 +208,26 @@ def preprocess(new_house = dict):
     # and  return preprocessed input which is ready to make prediction in the model
     
     # deal with the format (convert json to df)
-    # input = df format of new_house
+    # new_house_df = df format of new_house
     
     # deal with the zipcode (convert zipcode to province)
-    prop_province = define_province(input["zipcode"])
-    input["province"] = prop_province
+    prop_province = define_province(new_house_df["zipcode"])
+    new_house_df["province"] = prop_province
 
     
     # deal with the columns (one-hot-encoder)
-    input  = preprocessing(input)
+    new_house_df  = preprocessing(new_house_df)
 
-    return input
+    # addition to use model_mandatory: 
+    # If you are using model_mandatory.py, you should uncomment this line:
+    # Because you need to filter the new_house_df's columns as mandatory ones.
+    
+    # new_house_df = new_house_df.filter(items=['property-type_HOUSE', 'property-type_OTHERS',
+    #  'property-type_APARTMENT', 'rooms-number', 'area',
+    #  'province_Brussels Capital Region', 'province_Liège',
+    #  'province_Walloon Brabant', 'province_West Flanders',
+    #  'province_Flemish Brabant', 'province_Luxembourg', 'province_Antwerp',
+    #  'province_East Flanders', 'province_Hainaut', 'province_Limburg',
+    #  'province_Namur'])
+
+    return new_house_df
