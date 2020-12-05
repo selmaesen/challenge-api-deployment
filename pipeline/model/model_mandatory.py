@@ -31,10 +31,10 @@ X = df_mandatory.drop("price", axis=1)
 y = df_mandatory["price"]
         
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=41, test_size=0.2) 
-        
+
 regressor = LinearRegression()
 regressor.fit(X_train, y_train)
 
 
 pickle.dump(regressor, open('houseprice_model_mandatory.pkl', 'wb'))
-model = pickle.load(open('houseprice_model_mandatory.pkl', 'rb'))
+#model = pickle.load(open('houseprice_model_mandatory.pkl', 'rb'))

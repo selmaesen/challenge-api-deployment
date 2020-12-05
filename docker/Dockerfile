@@ -12,8 +12,10 @@ COPY pipeline /app/pipeline
 
 
 COPY pipeline/model /app/pipeline/model
-COPY pipeline/model/data /app/pipeline/model/data
+COPY pipeline/predict /app/pipeline/predict
+COPY pipeline/preprocessing /app/pipeline/preprocessing
+COPY app.py /app/app.py
 
 WORKDIR /app
 
-CMD ["python","pipeline/model/house_price.py"]
+CMD ["python","app.py"]
