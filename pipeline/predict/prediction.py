@@ -9,8 +9,8 @@ def predict(df):
     parameters: df -> dataframe, model->pickle
     return: result -> predicted price
     """
-    df["property - type_HOUSE"] = int(df["property - type_HOUSE"])
-    df["property - type_OTHERS"] = int(df["property - type_OTHERS"])
+    df["property-type_HOUSE"] = int(df["property-type_HOUSE"])
+    df["property-type_OTHERS"] = int(df["property-type_OTHERS"])
     df["property-type_APARTMENT"] = int(df["property-type_APARTMENT"])
     df["rooms-number"] = float(df["rooms-number"])
     df["area"] = float(df["area"])
