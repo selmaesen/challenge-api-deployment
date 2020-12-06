@@ -1,5 +1,3 @@
-# Import necessary libraries
-
 import pandas as pd
 from pandas_profiling import ProfileReport
 import numpy as np
@@ -11,7 +9,6 @@ df = pd.read_csv(url)
 
 
 # Define functions for data preprocessing tasks
-
 
 def general_clean(df):
     """Remove duplicates and unnecessary columns"""
@@ -170,7 +167,7 @@ df["rooms-number"] = imputer.fit_transform(df["rooms-number"].values.reshape(-1,
 df["garden"] = imputer.fit_transform(df["garden"].values.reshape(-1, 1))[:, 0]
 df["furnished"] = imputer.fit_transform(df["furnished"].values.reshape(-1, 1))[:, 0]
 
-df.info()
+# df.info()
 
 processed_csv = df.to_csv("ready_to_model_df.csv")
 
@@ -203,7 +200,7 @@ def define_province(x):
         return 'more'
 
 
-def preprocess(new_house = dict):
+def preprocess(new_house_df):
     # this fuction should take the input (new house info) 
     # and  return preprocessed input which is ready to make prediction in the model
     
@@ -211,7 +208,7 @@ def preprocess(new_house = dict):
     # new_house_df = df format of new_house
     
     # deal with the zipcode (convert zipcode to province)
-    prop_province = define_province(new_house_df["zipcode"])
+    prop_province = define_province(new_house_df["zip-code"].values[0])
     new_house_df["province"] = prop_province
 
     
