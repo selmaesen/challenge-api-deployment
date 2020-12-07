@@ -29,20 +29,20 @@ def welcome():
     return "Welcome to API Deployment"
 
 
-@app.route("/predict", methods=["POST"])
-def predict_api():
-    """
-    function returns predicted price
-    parameters: GET,POST
-    return: "The predicted price is VALUE"
-    """
-    data = request.get_json()
-    dataset = pd.DataFrame(data, index=[0,])
-    new_df = preprocess(dataset)
-    new_df.to_csv("test.csv")
-    result = predict(new_df)
+# @app.route("/predict", methods=["POST"])
+# def predict_api():
+#     """
+#     function returns predicted price
+#     parameters: GET,POST
+#     return: "The predicted price is VALUE"
+#     """
+#     data = request.get_json()
+#     dataset = pd.DataFrame(data, index=[0,])
+#     new_df = preprocess(dataset)
+#     new_df.to_csv("test.csv")
+#     result = predict(new_df)
 
-    return jsonify(result)
+#     return jsonify(result)
 
 
 if __name__ == '__main__':
