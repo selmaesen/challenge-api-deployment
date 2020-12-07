@@ -1,7 +1,7 @@
 import pandas as pd
-from pandas_profiling import ProfileReport
+#from pandas_profiling import ProfileReport
 import numpy as np
-import missingno as msno
+#import missingno as msno
 import re
 
 url = "https://raw.githubusercontent.com/adamflasse/dataCleaning/main/updated_1.csv"
