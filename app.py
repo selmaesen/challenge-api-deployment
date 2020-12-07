@@ -9,7 +9,7 @@ import pipeline.model as model
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 def home():
     """
     function returns string on welcome page
@@ -19,7 +19,7 @@ def home():
     return "Alive!"
 
 
-@app.route('/welcome')
+@app.route('/welcome', methods=["GET"])
 def welcome():
     """
     function returns string on home page
