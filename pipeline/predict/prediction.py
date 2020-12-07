@@ -9,6 +9,7 @@ def predict(df):
     parameters: df -> dataframe, model->pickle
     return: result -> predicted price
     """
+
     df["property-type_HOUSE"] = int(df["property-type_HOUSE"])
     df["property-type_OTHERS"] = int(df["property-type_OTHERS"])
     df["property-type_APARTMENT"] = int(df["property-type_APARTMENT"])
@@ -25,6 +26,7 @@ def predict(df):
     df["province_Hainaut"] = int(df["province_Hainaut"])
     df["province_Limburg"] = int(df["province_Limburg"])
     df["province_Namur"] = int(df["province_Namur"])
+
     result = model_pkl.predict(df)
 
     result = str(result).replace('[', ' ').replace(']', ' ')
