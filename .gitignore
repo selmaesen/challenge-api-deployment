@@ -1,1 +1,8 @@
 Talk.txt
+test.ipynb
+.ipynb_checkpoints/
+.vscode/
+Untitled.ipynb
+__pycache__/
+pipeline/predict/__pycache__/prediction.cpython-38.pyc
+pipeline/preprocessing/__pycache__/
