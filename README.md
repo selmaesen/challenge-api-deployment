@@ -30,9 +30,15 @@ Area, property-type, rooms-number and zip-code are required(mandatory) in order 
 ```json
 {
     "prediction": Optional[float],
+}
+```
+In case we have the right data
+```json
+{
     "error": Optional[str]
 }
 ```
+In case we have wrong or missing data
 
 ### File structure:
 
