@@ -3,8 +3,7 @@ import pandas as pd
 from flask import Flask, request, jsonify, render_template
 import pickle
 from pipeline.predict.prediction import predict
-# from pipeline.preprocessing.cleaning_data_vers02 import preprocess
-from pipeline.preprocessing.clean_test import preprocess
+from pipeline.preprocessing.cleaning_data import preprocess
 import pipeline.model as model
 
 app = Flask(__name__)

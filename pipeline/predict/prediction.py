@@ -1,6 +1,6 @@
 import pickle
 
-model_pkl = pickle.load(open('pipeline/model/houseprice_model_mandatory.pkl', 'rb'))
+model_pkl = pickle.load(open('pipeline/model/model_mandatory.pkl', 'rb'))
 
 
 def predict(df):
