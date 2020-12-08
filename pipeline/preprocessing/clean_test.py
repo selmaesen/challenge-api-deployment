@@ -44,15 +44,27 @@ def define_property(new_df, type):
 def preprocess(df):
     mandatory = ["area", "property-type", "rooms-number", "zip-code"]
 
+    check_zip = 0
+    check_type = 0
+
     for m in mandatory:
         if m not in df.columns:
-            return "Error-Missing!"
+            return "Required data missing"
 
     if df["property-type"].values[0] not in ["APARTMENT", "HOUSE", "OTHERS"]:
-        return "Error-Property"
+        check_type = 1
     
     if df["zip-code"].values[0] < 1000 or df["zip-code"].values[0] >= 9999:
-        return "Error-ZipCode"
+        check_zip = 1
+
+    message = ""
+    if check_zip == 1:
+        message += "Zip code error - "
+    if check_type == 1:
+        message += "Test property type - "
+    
+    if len(message) > 1:
+        return message
     
     new_df = pd.read_csv("pipeline/preprocessing/test-dataframe.csv")
     new_df.drop(["Unnamed: 0"], axis=1, inplace=True)
@@ -62,9 +74,8 @@ def preprocess(df):
     columns = [column for column in df.columns if column not in ["property-type", "zip-code"]]
     new_df[columns] = df[columns]
     new_df.to_csv("Test.csv")
-    print("\n\n\n")
-    # print(new_df["province_Brussels Capital Region"])
-    print("\n\n\n")
+
+    return new_df
 
 
 # if __name__ == "__main__":
