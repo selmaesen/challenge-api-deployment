@@ -41,6 +41,25 @@ In that project we have created a prediction model to predict new selling prices
 
 ### File structure:
 
+    .
+    ├── ...
+    ├── docker                    
+    │   ├── Dockerfile                           
+    ├── pipline                    
+    │   ├── model
+    │       ├── model.py 
+    │       ├── ready_to_model_df.csv
+    │   ├── predict
+    │       ├── predict.py
+    │   ├── preprocessing 
+    │       ├── cleaning_data.py
+    ├── Procfile
+    ├── app.py
+    ├── requirements.txt
+    ├── README.md
+    
+
+
 
 ### Detailes:
 
