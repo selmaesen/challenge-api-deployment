@@ -41,15 +41,19 @@ def predict_api():
         dataset = pd.DataFrame(data, index=[0, ])
         dataset.replace(True, int(1), inplace=True)
         dataset.replace(False, int(0), inplace=True)
-        # dataset.replace(1.0, int(1), inplace=True)
         new_df = preprocess(dataset)
 
         if isinstance(new_df, str):
-            return jsonify(f"ERROR: {new_df}")
+            message = {
+                "ERROR": new_df
+            }
+            return jsonify(message)
         else:
             result = float(predict(new_df).strip())
-            pre_message = f'Predicted price: {round(result, 2)}'
-            return jsonify(pre_message)
+            message = {
+                "Predicted price": round(result, 2)
+            }
+            return jsonify(message)
     elif request.method == "GET":
         message = "The page accept a POST request of data in following format:\n"
         data = "{\n'area': int,\n'property-type': 'APARTMENT' | 'HOUSE' | 'OTHERS',\n\
