@@ -78,8 +78,3 @@ def preprocess(df):
     return new_df
 
 
-# if __name__ == "__main__":
-#     data = pd.read_csv("ready_to_model_df.csv")
-#     data.drop(["Unnamed: 0"], axis=1, inplace=True)
-#     print(data.columns)
-#     print(preprocess(data))
