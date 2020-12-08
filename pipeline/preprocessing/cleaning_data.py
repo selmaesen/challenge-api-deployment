@@ -73,8 +73,7 @@ def preprocess(df):
 
     columns = [column for column in df.columns if column not in ["property-type", "zip-code"]]
     new_df[columns] = df[columns]
-    new_df.to_csv("Test.csv")
-
+    
     return new_df
 
 
