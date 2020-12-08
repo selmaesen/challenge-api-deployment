@@ -44,17 +44,12 @@ def predict_api():
     # dataset.replace(1.0, int(1), inplace=True)
     new_df = preprocess(dataset)
 
-    print(type(new_df))
     if isinstance(new_df, str):
-        if new_df == "Error-Missing!":
-            return "Area, property-type, rooms-number or zip-code is missing"
-        elif new_df == "Error-Property":
-            return "Only input APARTMENT, HOUSE or OTHERS for property"
-        elif new_df == "Error-ZipCode":
-            return "Wrong zip-code input. Must be [1000-9998]"
+        return jsonify(f"ERROR: {new_df}")
     else:
-        result = predict(new_df)
-        return jsonify(result)
+        result = float(predict(new_df).strip())
+        pre_message = f'Predicted price: {round(result, 2)}'
+        return jsonify(pre_message)
 
 
 if __name__ == '__main__':
