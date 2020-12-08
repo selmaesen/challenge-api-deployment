@@ -66,3 +66,9 @@ In case we have wrong or missing data
 
 ### Details:
 
+### Run
+You can access the application on this [Link](https://davy-api.herokuapp.com/).
+- Home: "/"
+- Predict page: "/predict":
+* GET: Returns the data format you need to input
+* POST: Returns the predicted price or error message in case of error
