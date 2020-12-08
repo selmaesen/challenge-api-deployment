@@ -15,29 +15,30 @@ In that project we have created a prediction model to predict new selling prices
             "property-type": "APARTMENT" | "HOUSE" | "OTHERS",
             "rooms-number": int,
             "zip-code": int,
-            "land-area": Optional[int],
             "garden": Optional[bool],
-            "garden-area": Optional[int],
             "equipped-kitchen": Optional[bool],
-            "full-address": Optional[str],
-            "swimmingpool": Opional[bool],
             "furnished": Opional[bool],
-            "open-fire": Optional[bool],
             "terrace": Optional[bool],
-            "terrace-area": Optional[int],
-            "facades-number": Optional[int],
-            "building-state": Optional["NEW" | "GOOD" | "TO RENOVATE" | "JUST RENOVATED" | "TO REBUILD"]
+            "facades-number": Optional[int]
     }
 }
 ```
+
+Area, property-type, rooms-number and zip-code are required(mandatory) in order to run the application
 
 ### The output:
 ```json
 {
     "prediction": Optional[float],
+}
+```
+In case we have the right data
+```json
+{
     "error": Optional[str]
 }
 ```
+In case we have wrong or missing data
 
 ### File structure:
 
@@ -47,12 +48,14 @@ In that project we have created a prediction model to predict new selling prices
     │   ├── Dockerfile                           
     ├── pipline                    
     │   ├── model
-    │       ├── model.py 
+    │       ├── model.py
+    │       ├── model.pkl
     │       ├── ready_to_model_df.csv
     │   ├── predict
-    │       ├── predict.py
+    │       ├── prediction.py
     │   ├── preprocessing 
     │       ├── cleaning_data.py
+    │       │── test-dataframe.csv
     ├── Procfile
     ├── app.py
     ├── requirements.txt
@@ -61,5 +64,11 @@ In that project we have created a prediction model to predict new selling prices
 
 
 
-### Detailes:
+### Details:
 
+### Run
+You can access the application on this [Link](https://davy-api.herokuapp.com/).
+- Home: "/"
+- Predict page: "/predict":
+* GET: Returns the data format you need to input
+* POST: Returns the predicted price or error message in case of error
