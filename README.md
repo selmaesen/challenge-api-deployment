@@ -41,7 +41,7 @@ In that project we have created a prediction model to predict new selling prices
 
 ### File structure:
 
-.
+    .
     ├── ...
     ├── docker                    
     │   ├── Dockerfile                           
