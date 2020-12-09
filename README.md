@@ -2,6 +2,7 @@
 
 ### Introduction:
 This project is an BeCode Bouman group challange for 5 days (Deadline:08/12/2020). 
+
 The project was done by [Davy Nimbona](https://github.com/davymariko) (team leader), [Manasa Devinoolu](https://github.com/manasanoolu7), [Christophe Schellinck](https://github.com/christopheschellinck) and [Selma Esen](https://github.com/selmaesen). 
 
 ### Goal:
