@@ -44,12 +44,13 @@ def define_property(new_df, type):
 def preprocess(df):
     mandatory = ["area", "property-type", "rooms-number", "zip-code"]
 
+    check_data = 0
     check_zip = 0
     check_type = 0
 
     for m in mandatory:
         if m not in df.columns:
-            return "Required data missing"
+            check_data = 1
 
     if df["property-type"].values[0] not in ["APARTMENT", "HOUSE", "OTHERS"]:
         check_type = 1
@@ -58,10 +59,16 @@ def preprocess(df):
         check_zip = 1
 
     message = ""
+    if check_data == 1:
+        message += "Mandatory data missing"
     if check_zip == 1:
-        message += "Zip code error - "
+        if len(message)> 1:
+            message +=" - "
+        message += "Invalid Zip Code, must be [1000-9998]"
     if check_type == 1:
-        message += "Test property type - "
+        if len(message)> 1:
+            message +=" - "
+        message += "Wrong property type. Must be HOUSE, APARTMENT or OTHERS"
     
     if len(message) > 1:
         return message
