@@ -12,17 +12,15 @@ In that project we have created a prediction model to predict new selling prices
 ### The input:
 ```json
 {
-    "data": {
-            "area": int,
-            "property-type": "APARTMENT" | "HOUSE" | "OTHERS",
-            "rooms-number": int,
-            "zip-code": int,
-            "garden": Optional[bool],
-            "equipped-kitchen": Optional[bool],
-            "furnished": Opional[bool],
-            "terrace": Optional[bool],
-            "facades-number": Optional[int]
-    }
+    "area": int,
+    "property-type": "APARTMENT" | "HOUSE" | "OTHERS",
+    "rooms-number": int,
+    "zip-code": int,
+    "garden": Optional[bool],
+    "equipped-kitchen": Optional[bool],
+    "furnished": Opional[bool],
+    "terrace": Optional[bool],
+    "facades-number": Optional[int]
 }
 ```
 
@@ -48,7 +46,7 @@ In case we have wrong or missing data
     ├── ...
     ├── docker                    
     │   ├── Dockerfile                           
-    ├── pipline                    
+    ├── pipeline                    
     │   ├── model
     │       ├── model.py
     │       ├── model.pkl
