@@ -3,8 +3,7 @@ import pandas as pd
 from flask import Flask, request, jsonify, render_template
 import pickle
 from pipeline.predict.prediction import predict
-# from pipeline.preprocessing.cleaning_data_vers02 import preprocess
-from pipeline.preprocessing.clean_test import preprocess
+from pipeline.preprocessing.cleaning_data import preprocess
 import pipeline.model as model
 
 app = Flask(__name__)
@@ -30,26 +29,40 @@ def welcome():
     return "Welcome to API Deployment"
 
 
-@app.route("/predict", methods=["POST"])
+@app.route("/predict", methods=["GET", "POST"])
 def predict_api():
     """
     function returns predicted price
     parameters: GET,POST
     return: "The predicted price is VALUE"
     """
-    data = request.get_json()
-    dataset = pd.DataFrame(data, index=[0, ])
-    dataset.replace(True, int(1), inplace=True)
-    dataset.replace(False, int(0), inplace=True)
-    # dataset.replace(1.0, int(1), inplace=True)
-    new_df = preprocess(dataset)
+    if request.method == "POST":
+        data = request.get_json()
+        dataset = pd.DataFrame(data, index=[0, ])
+        dataset.replace(True, int(1), inplace=True)
+        dataset.replace(False, int(0), inplace=True)
+        new_df = preprocess(dataset)
 
-    if isinstance(new_df, str):
-        return jsonify(f"ERROR: {new_df}")
-    else:
-        result = float(predict(new_df).strip())
-        pre_message = f'Predicted price: {round(result, 2)}'
-        return jsonify(pre_message)
+        if isinstance(new_df, str):
+            message = {
+                "ERROR": new_df
+            }
+            return jsonify(message)
+        else:
+            result = float(predict(new_df).strip())
+            message = {
+                "Predicted price": round(result, 2)
+            }
+            return jsonify(message)
+    elif request.method == "GET":
+        message = "The page accept a POST request of data in following format:\n"
+        data = "<p>{<br>area': int,<br>'property-type': 'APARTMENT' | 'HOUSE' \
+            | 'OTHERS',<br>'rooms-number': int,<br>'zip-code': int,<br>'garden'\
+            : Optional[bool],<br>'equipped-kitchen': Optional[bool],<br>\
+            'furnished': Opional[bool],<br>'terrace': Optional[bool],<br>\
+            'facades-number': Optional[int]<br>}"
+        
+        return (message+data)
 
 
 if __name__ == '__main__':

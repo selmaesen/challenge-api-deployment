@@ -17,10 +17,11 @@ from sklearn.metrics import mean_squared_error, r2_score, accuracy_score
 
 import pickle
 
-df = pd.read_csv("ready_to_model_df.csv")
+df = pd.read_csv("pipeline/model/ready_to_model_df.csv")
 
 df_mandatory = df.filter(items=['property-type_HOUSE', 'property-type_OTHERS',
-        'property-type_APARTMENT', 'rooms-number', 'area',
+        'property-type_APARTMENT', 'rooms-number', 'area', 'equipped-kitchen',
+        'furnished', 'terrace', 'garden', 'facades-number',
         'province_Brussels Capital Region', 'province_Liège', "price",
         'province_Walloon Brabant', 'province_West Flanders',
         'province_Flemish Brabant', 'province_Luxembourg', 'province_Antwerp',
@@ -29,12 +30,9 @@ df_mandatory = df.filter(items=['property-type_HOUSE', 'property-type_OTHERS',
 
 X = df_mandatory.drop("price", axis=1)
 y = df_mandatory["price"]
-        
+
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=41, test_size=0.2) 
 
 regressor = LinearRegression()
 regressor.fit(X_train, y_train)
-
-
-pickle.dump(regressor, open('houseprice_model_mandatory.pkl', 'wb'))
-#model = pickle.load(open('houseprice_model_mandatory.pkl', 'rb'))
+pickle.dump(regressor, open('pipeline/model/model.pkl', 'wb'))
