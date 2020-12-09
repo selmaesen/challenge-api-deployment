@@ -74,18 +74,18 @@ You can access the application on this [Link](https://davy-api.herokuapp.com/).
 * POST: Returns the predicted price or error message in case of error
 
 
-### Docker File
+## Docker File
 
-# image creation
+#### image creation
 docker build -f docker/Dockerfile . -t image_name:tag_name
 
-# docker run
+#### docker run
 docker run -it image_name:tag_name
 
 
-### Heroku 
+## Heroku 
 
-## You can find the link [here](http://davy-api.herokuapp.com/)
+### You can find the link [here](http://davy-api.herokuapp.com/)
 
 - access welcome page by */welcome*. 
 
