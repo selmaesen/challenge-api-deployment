@@ -1,7 +1,9 @@
 # challenge-api-deployment
 
 ### Introduction:
-This project is an BeCode Bouman group challange for 5 days (Deadline:08/12/2020). The project has done by Davy Nimbona (team leader), Manasa Devinoolu, Christophe Schellinck and Selma Esen. 
+This project is an BeCode Bouman group challange for 5 days (Deadline:08/12/2020). 
+
+The project was done by [Davy Nimbona](https://github.com/davymariko) (team leader), [Manasa Devinoolu](https://github.com/manasanoolu7), [Christophe Schellinck](https://github.com/christopheschellinck) and [Selma Esen](https://github.com/selmaesen). 
 
 ### Goal:
 
@@ -29,7 +31,7 @@ Area, property-type, rooms-number and zip-code are required(mandatory) in order 
 ### The output:
 ```json
 {
-    "prediction": Optional[float],
+    "prediction": [float],
 }
 ```
 In case we have the right data
@@ -66,9 +68,35 @@ In case we have wrong or missing data
 
 ### Details:
 
+The ***model_featured.py*** file makes use of Linear regression and dumps the regressor into a pickle file.
+
+The ***prediction.py*** file imports and loads the pickle file with data for the prediction and executes the prediction being a price for given inputs.
+
+The ***data_cleaning.py*** file deals with cleaning and preprocessing. Processing the data ready to feed the model and make predictions. Also dealing with error messages if the user provides incorrect input.
+
+
 ### Run
 You can access the application on this [Link](https://davy-api.herokuapp.com/).
 - Home: "/"
 - Predict page: "/predict":
 * GET: Returns the data format you need to input
 * POST: Returns the predicted price or error message in case of error
+
+
+## Docker File
+
+#### image creation
+docker build -f docker/Dockerfile . -t image_name:tag_name
+
+#### docker run
+docker run -it image_name:tag_name
+
+
+## Heroku 
+
+### You can find the link [here](http://davy-api.herokuapp.com/)
+
+- access welcome page by */welcome*. 
+
+- access price prediction page by */predict* (Use Postman)
+
