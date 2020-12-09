@@ -1,4 +1,5 @@
-FROM python
+FROM ubuntu:18.04
+FROM python:3.8
 COPY requirements.txt .
 RUN pip install --upgrade -r requirements.txt
 
@@ -18,4 +19,4 @@ COPY app.py /app/app.py
 
 WORKDIR /app
 
-CMD ["python","app.py"]
+CMD ["python", "app.py"]
