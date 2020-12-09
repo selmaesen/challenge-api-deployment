@@ -72,3 +72,23 @@ You can access the application on this [Link](https://davy-api.herokuapp.com/).
 - Predict page: "/predict":
 * GET: Returns the data format you need to input
 * POST: Returns the predicted price or error message in case of error
+
+
+### Docker File
+
+
+### RUN
+
+## image creation
+
+docker build -f docker/Dockerfile . -t image_name:tag_name
+docker run -it image_name:tag_name
+
+
+### Heroku 
+
+### You can find the link [here](http://davy-api.herokuapp.com/)
+
+- use /welcome for welcome page
+- use /predict for price prediction (Use Postman)
+
