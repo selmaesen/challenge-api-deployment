@@ -82,6 +82,17 @@ You can access the application on this [Link](https://davy-api.herokuapp.com/).
 * GET: Returns the data format you need to input
 * POST: Returns the predicted price or error message in case of error
 
+To run it on your local machine:
+- Clone the project
+- Install the requirements for this project by running:
+```bash
+pip install -r requirements.txt
+```
+- Then run file:
+```bash
+app.py
+```
+- Test it using [Postman](https://www.postman.com/)
 
 ## Docker File
 
