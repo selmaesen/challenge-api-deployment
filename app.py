@@ -56,10 +56,11 @@ def predict_api():
             return jsonify(message)
     elif request.method == "GET":
         message = "The page accept a POST request of data in following format:\n"
-        data = "{\n'area': int,\n'property-type': 'APARTMENT' | 'HOUSE' | 'OTHERS',\n\
-            'rooms-number': int,\n'zip-code': int,\n'garden': Optional[bool],\n\
-            'equipped-kitchen': Optional[bool],\n'furnished': Opional[bool],\n\
-            'terrace': Optional[bool],\n'facades-number': Optional[int]\n}"
+        data = "<p>{<br>area': int,<br>'property-type': 'APARTMENT' | 'HOUSE' \
+            | 'OTHERS',<br>'rooms-number': int,<br>'zip-code': int,<br>'garden'\
+            : Optional[bool],<br>'equipped-kitchen': Optional[bool],<br>\
+            'furnished': Opional[bool],<br>'terrace': Optional[bool],<br>\
+            'facades-number': Optional[int]<br>}"
         
         return (message+data)
 
