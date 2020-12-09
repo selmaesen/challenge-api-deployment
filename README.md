@@ -76,18 +76,16 @@ You can access the application on this [Link](https://davy-api.herokuapp.com/).
 
 ### Docker File
 
-## image creation
-
+# image creation
 docker build -f docker/Dockerfile . -t image_name:tag_name
 
-## docker run
-
+# docker run
 docker run -it image_name:tag_name
 
 
 ### Heroku 
 
-### You can find the link [here](http://davy-api.herokuapp.com/)
+## You can find the link [here](http://davy-api.herokuapp.com/)
 
 - access welcome page by */welcome*. 
 
