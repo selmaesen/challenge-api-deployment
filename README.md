@@ -1,7 +1,8 @@
 # challenge-api-deployment
 
 ### Introduction:
-This project is an BeCode Bouman group challange for 5 days (Deadline:08/12/2020). The project has done by Davy Nimbona (team leader), Manasa Devinoolu, Christophe Schellinck and Selma Esen. 
+This project is an BeCode Bouman group challange for 5 days (Deadline:08/12/2020). 
+The project was done by [Davy Nimbona](https://github.com/davymariko) (team leader), [Manasa Devinoolu](https://github.com/manasanoolu7), [Christophe Schellinck](https://github.com/christopheschellinck) and [Selma Esen](https://github.com/selmaesen). 
 
 ### Goal:
 
@@ -29,7 +30,7 @@ Area, property-type, rooms-number and zip-code are required(mandatory) in order 
 ### The output:
 ```json
 {
-    "prediction": Optional[float],
+    "prediction": [float],
 }
 ```
 In case we have the right data
