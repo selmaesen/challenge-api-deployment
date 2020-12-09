@@ -82,6 +82,7 @@ You can access the application on this [Link](https://davy-api.herokuapp.com/).
 ## image creation
 
 docker build -f docker/Dockerfile . -t image_name:tag_name
+
 docker run -it image_name:tag_name
 
 
@@ -89,6 +90,7 @@ docker run -it image_name:tag_name
 
 ### You can find the link [here](http://davy-api.herokuapp.com/)
 
-- use /welcome for welcome page
-- use /predict for price prediction (Use Postman)
+- access welcome page by */welcome*. 
+
+- access price prediction page by */predict* (Use Postman)
 
