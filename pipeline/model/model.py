@@ -17,7 +17,7 @@ from sklearn.metrics import mean_squared_error, r2_score, accuracy_score
 
 import pickle
 
-df = pd.read_csv("pipeline/model/ready_to_model_df_test.csv")
+df = pd.read_csv("pipeline/model/ready_to_model_df.csv")
 
 df_mandatory = df.filter(items=['property-type_HOUSE', 'property-type_OTHERS',
         'property-type_APARTMENT', 'rooms-number', 'area', 'equipped-kitchen',
@@ -35,4 +35,4 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=41, test_
 
 regressor = LinearRegression()
 regressor.fit(X_train, y_train)
-pickle.dump(regressor, open('pipeline/model/model_test.pkl', 'wb'))
+pickle.dump(regressor, open('pipeline/model/model.pkl', 'wb'))
