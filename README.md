@@ -68,6 +68,13 @@ In case we have wrong or missing data
 
 ### Details:
 
+The ***model_featured.py*** file makes use of Linear regression and dumps the regressor into a pickle file.
+
+The ***prediction.py*** file imports and loads the pickle file with data for the prediction and executes the prediction being a price for given inputs.
+
+The ***data_cleaning.py*** file deals with cleaning and preprocessing. Processing the data ready to feed the model and make predictions. Also dealing with error messages if the user provides incorrect input.
+
+
 ### Run
 You can access the application on this [Link](https://davy-api.herokuapp.com/).
 - Home: "/"
